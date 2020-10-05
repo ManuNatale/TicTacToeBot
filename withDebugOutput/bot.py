@@ -23,16 +23,8 @@ def botPlay(matrixValues):
     for i in range(0, len(winPatterns)):
         for m in range(0, len(winPatterns[i])):
             if(winPatterns[i][m] == 'X'):
-                memPatterns[i] -= 2
+                memPatterns[i] -= 1
         for j in range(0, len(winPatterns[i])):
-            if(winPatterns[i][j] == 'O'):
-                memPatterns[i] += 1
-        ###################################################
-        # Same but reversed
-        for m in range(0, len(winPatterns[i])):
-            if(winPatterns[i][m] == 'X'):
-                memPatterns[i] -= 2
-        for j in range(len(winPatterns[i])-1, -1, -1):
             if(winPatterns[i][j] == 'O'):
                 memPatterns[i] += 1
         highestNum = -10
@@ -44,7 +36,7 @@ def botPlay(matrixValues):
         print(f'highest = {highestNum}, highestIndex = {highestNumIndex}')
         print(f'memPatterns {memPatterns}')
         
-    if(highestNum == 4):
+    if(highestNum == 2):
         for k in range(0, 3):
             if(winPatterns[highestNumIndex][k] != 'O' and winPatterns[highestNumIndex][k] != 'X'):
                 print(f'Placement : {winPatterns[i][k]}')
